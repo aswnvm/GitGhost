@@ -49,7 +49,7 @@ It will then automatically generate commits and push them to the repository.
 
 2. commit_messages.txt\
    Contains commit messages that are randomly selected for each commit.
-   
+
 
 ## How It Works
 - Clones the GitHub repository (or uses an existing local repo).\
