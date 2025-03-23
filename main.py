@@ -3,6 +3,7 @@ from datetime import datetime, timedelta
 from random import randint
 import random
 import os
+import json
 
 
 def main():
@@ -30,12 +31,12 @@ def main():
     
     # file_check(files)
 
-    # for day in range(0, days):
-    #     date = (datetime.today() - timedelta(days=day)).strftime("%Y-%m-%d %H:%M:%S")
-    #     for i in range(0, randint(1, 5)):
-    #         print(date)
-    #         commit_n_push(local_rep_path, repo, date)
-    # print("Commits done successfully!")
+    for day in range(0, days):
+        date = (datetime.today() - timedelta(days=day)).strftime("%Y-%m-%d %H:%M:%S")
+        for i in range(0, randint(1, 5)):
+            print(date)
+            commit_n_push(local_rep_path, repo, date)
+    print("Commits done successfully!")
 
 def file_list(dpath):
     files = [f for f in os.listdir(dpath) if os.path.isfile(os.path.join(dpath, f))]
@@ -75,18 +76,21 @@ def file_list(dpath):
 #         return [line.strip() for line in f.readlines() if line.strip()]
 
 
-def commit_n_push(local_rep_path, repo, date):
+def commit_n_push(fpath, repo, date):
     
     readme_cont = load_file_content("readme_contents.txt")
     commit_msg = load_file_content("commit_messages.txt")
 
     random_readme_cont = random.choice(readme_cont)
     random_commit_msg = random.choice(commit_msg)
-    with open(os.path.join(local_rep_path + "/README.md"), "w") as f:
-        # f.write(f"This is a README file for the repository. Updated at {date}\n")
-        f.write(f"{random_readme_cont} {date}\n")
+    # with open(os.path.join(local_rep_path + "/README.md"), "w") as f:
+    #     # f.write(f"This is a README file for the repository. Updated at {date}\n")
+    #     f.write(f"{random_readme_cont} {date}\n")
+    # repo.index.add([os.path.join(local_rep_path + "/README.md")])
 
-    repo.index.add([os.path.join(local_rep_path + "/README.md")])
+    with open(fpath, "w") as f:
+        f.write()
+    repo.index.add([fpath])
     repo.index.commit(random_commit_msg, author_date=date, commit_date=date)
     repo.remotes.origin.push()
 
