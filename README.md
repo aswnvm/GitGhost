@@ -3,7 +3,7 @@ A Python-based automation tool that haunts your Git history with automated commi
 
  ## Features
 - Automates multiple commits over a specified number of days.
-- Randomly selects README content and commit messages from external files.
+- Randomly selects content and commit messages from external files.
 - Uses custom commit timestamps to simulate past activity.
 - Pushes changes to a remote repository.
 
@@ -39,16 +39,17 @@ The script will prompt you for:
 
     Whether a local repo exists (y/n)
     GitHub username and repo details (if cloning)
+    Names of the file to be edited
     Number of days to commit
 It will then automatically generate commits and push them to the repository.
 
 
 ## External Files
-1. readme_contents.txt\
-   Contains content that is added to the README.md file on every commit.
+1. content_code.json\
+   Contains content that is randomly added to the selected code file on every commit.
 
-2. commit_messages.txt\
-   Contains commit messages that are randomly selected for each commit.
+2. content_readme.json\
+   Contains content that is randomly added to the selected readme file on every commit.
 
 
 ## How It Works
@@ -59,6 +60,6 @@ It will then automatically generate commits and push them to the repository.
 - Pushes the commits to the remote repository
 
 > [!NOTE]
-> Ensure that readme_contents.txt and commit_messages.txt contain relevant data.\
+> Ensure that content_code.json and content_readme.json contain relevant data.\
 > The script modifies the README.md file, so use it on repositories where this is acceptable.\
 > Push failures may occur if authentication issues arise; make sure you have the correct Git credentials set up.
