@@ -11,8 +11,8 @@ A Python-based automation tool that haunts your Git history with automated commi
 ## Project Structure
 ```
     /gitghost
-    │── readme_contents.txt   # Stores README update content
-    │── commit_messages.txt   # Stores commit messages
+    │── content_code.json     # Contains predefined code contents
+    │── content_readme.json   # Contains predefined readme contents
     │── main.py               # Main script to automate commits
     │── README.md             # Documentation file
 ```
