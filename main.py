@@ -25,13 +25,6 @@ def main():
     sel_file = file_list(local_rep_path)
     days = int(input("Enter the num of days to commit: "))
 
-    # file_count = int(input("Enter the num of files to be modified: "))
-
-    # files = []
-    # file_name =os.path.join(local_rep_path, str(input(f"{i+1}.Enter the file name with extension: ")))
-
-    # file_check(files)
-
     for day in range(0, days):
         date = (datetime.today() - timedelta(days=day)).strftime("%Y-%m-%d %H:%M:%S")
         for i in range(0, randint(1, 5)):
